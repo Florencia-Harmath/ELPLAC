@@ -13,6 +13,7 @@ import { AuthRepository } from './auth/auth.repository';
 import { LoggerMiddleware } from './middlewares/Logger.middleware';
 //modulos
 import { AuthModule } from './auth/auth.module';
+import { CategoriesModule } from './categories/categories.module';
 //entitys
 import { Category } from './entitys/category.entity';
 import { FairCategory } from './entitys/fairCategory.entity';
@@ -57,7 +58,8 @@ import { UserFairRegistration } from './entitys/userFairRegistration.entity';
       UserFairRegistration,
       User
     ]),
-    AuthModule
+    AuthModule,
+    CategoriesModule
   ],
   controllers: [AuthController],
   providers: [AppService, AuthService, AuthRepository],
