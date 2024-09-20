@@ -34,6 +34,10 @@ import { FairsModule } from './fairs/fairs.module';
 import { FairsController } from './fairs/fairs.controller';
 import { FairsRepository } from './fairs/fairs.repository';
 import { FairsService } from './fairs/fairs.service';
+import { SellersModule } from './sellers/sellers.module';
+import { SellersController } from './sellers/sellers.controller';
+import { SellersRepository } from './sellers/sellers.repository';
+import { SellersService } from './sellers/sellers.service';
 
 @Module({
   imports: [
@@ -70,8 +74,9 @@ import { FairsService } from './fairs/fairs.service';
     AuthModule,
     CategoriesModule,
     FairsModule,
+    SellersModule,
   ],
-  controllers: [AuthController, CategoriesController, FairsController],
+  controllers: [AuthController, CategoriesController, FairsController, SellersController],
   providers: [
     AppService,
     AuthService,
@@ -79,7 +84,9 @@ import { FairsService } from './fairs/fairs.service';
     CategoriesRepository,
     CategoriesService,
     FairsRepository,
-    FairsService
+    FairsService,
+    SellersRepository,
+    SellersService
   ],
 })
 export class AppModule implements NestModule {
