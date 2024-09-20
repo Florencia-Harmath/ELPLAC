@@ -4,3 +4,5 @@ export enum UserStatusGeneral {
     BLOCKED = "blocked", // bloqueado
     INACTIVE = "inactive" //no inscrito en ninguna feria
 }
+
+

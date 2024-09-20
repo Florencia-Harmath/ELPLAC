@@ -12,31 +12,31 @@ export class CategoriesController {
     //crear una categoria
     @Post()
     async createCategory(@Body() category: CategoryDTO) {
-        return await this.createCategory(category)
+        return await this.categoriesService.createCategory(category)
     }
 
     //obtener todas las categorias
     @Get()
     async getAllCategories() {
-        return await this.getAllCategories()
+        return await this.categoriesService.getAllCategories()
     }
 
     //obtener una categoria
     @Get(":id")
     async getCategory(@Param('id') id: string) {
-        return await this.getCategory(id)
+        return await this.categoriesService.getCategory(id)
     }
 
     //editar una categoria
     @Put("update/:id")
     async updateCategory(@Body() category: CategoryDTO, @Param('id') id: string) {  
-        return await this.updateCategory(category, id)
+        return await this.categoriesService.updateCategory(category, id)
     }
 
     //borrar una categoria
     @Delete("delete/:id")
     async deleteCategory(@Param('id') id: string) {
-        return await this.deleteCategory(id)
+        return await this.categoriesService.deleteCategory(id)
     }
 
 }

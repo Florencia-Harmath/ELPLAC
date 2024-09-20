@@ -10,16 +10,19 @@ export class AuthController {
         private readonly authService: AuthService
     ) {}
 
+    //REGISTRO DE USUARIOS
      @Post('register/user')
      async RegisterUser (@Body() user: RegisterUserDTO) {
         return await this.authService.RegisterUser(user);
      }
      
+     //REGISTRO DE VENDEDORES
      @Post('register/seller')
      async RegisterSeller (@Body() seller: RegisterUserDTO) {
         return await this.authService.RegisterSeller(seller);
      }
 
+     //LOGIN
      @Post('login')
      async Login (@Body() login: LoginUserDTO ) {
         return await this.authService.Login(login);

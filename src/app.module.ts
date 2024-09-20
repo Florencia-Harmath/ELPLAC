@@ -27,6 +27,13 @@ import { User } from './entitys/users.entity';
 import { Seller } from './entitys/sellers.entity';
 import { UsersCapacity } from './entitys/userCapacity.entity';
 import { UserFairRegistration } from './entitys/userFairRegistration.entity';
+import { CategoriesRepository } from './categories/categories.repository';
+import { CategoriesService } from './categories/categories.service';
+import { CategoriesController } from './categories/categories.controller';
+import { FairsModule } from './fairs/fairs.module';
+import { FairsController } from './fairs/fairs.controller';
+import { FairsRepository } from './fairs/fairs.repository';
+import { FairsService } from './fairs/fairs.service';
 
 @Module({
   imports: [
@@ -44,6 +51,7 @@ import { UserFairRegistration } from './entitys/userFairRegistration.entity';
       signOptions: { expiresIn: '12h' },
       global: true,
     }),
+    //entidades
     TypeOrmModule.forFeature([
       Category,
       FairCategory,
@@ -56,15 +64,24 @@ import { UserFairRegistration } from './entitys/userFairRegistration.entity';
       Seller,
       UsersCapacity,
       UserFairRegistration,
-      User
+      User,
     ]),
+    //modulos
     AuthModule,
-    CategoriesModule
+    CategoriesModule,
+    FairsModule,
   ],
-  controllers: [AuthController],
-  providers: [AppService, AuthService, AuthRepository],
+  controllers: [AuthController, CategoriesController, FairsController],
+  providers: [
+    AppService,
+    AuthService,
+    AuthRepository,
+    CategoriesRepository,
+    CategoriesService,
+    FairsRepository,
+    FairsService
+  ],
 })
-
 export class AppModule implements NestModule {
   constructor() {}
 
